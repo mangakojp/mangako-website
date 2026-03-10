@@ -12,9 +12,9 @@ export const AboutPage = () => {
     return (
         <div className="bg-mangako-ivory min-h-screen">
             <PageHero
-                title={aboutData.heroTitle}
-                subtitle={aboutData.heroSubtitle}
-                description={aboutData.heroDesc}
+                title={aboutData?.heroTitle || "Archive & Ethos"}
+                subtitle={aboutData?.heroSubtitle || "継承される意志。"}
+                description={aboutData?.heroDesc || "Mangakoは、紙版マンガを単なる消費物ではなく、価値ある美術品として扱い、次世代へ受け継ぐためのプラットフォームです。"}
             />
 
             {/* Philosophy Section */}
@@ -27,19 +27,19 @@ export const AboutPage = () => {
                         transition={{ duration: 1.2 }}
                     >
                         <SectionHeader
-                            title={aboutData.philosophyTitle}
-                            subtitle={aboutData.philosophySubtitle}
+                            title={aboutData?.philosophyTitle || "Brand Philosophy"}
+                            subtitle={aboutData?.philosophySubtitle || "物語の原典を守る。"}
                         />
                         <div className="prose prose-mangako leading-relaxed font-sans text-lg text-mangako-ink/70 font-light space-y-8">
-                            {aboutData.philosophyTexts.map((text: string, idx: number) => (
+                            {(aboutData?.philosophyTexts || []).map((text: string, idx: number) => (
                                 <p key={idx}>{text}</p>
-                            )}
+                            ))}
                         </div>
                     </motion.div>
 
                     <div className="relative h-[600px] flex items-center justify-center">
                         <div className="absolute inset-0 bg-mangako-coral/5 border border-mangako-ink/5 rounded-full blur-3xl opacity-40"></div>
-                        <GooeyText texts={aboutData.philosophyWords} className="h-full w-full" />
+                        <GooeyText texts={aboutData?.philosophyWords || ["「真実」", "「保存」", "「悦び」", "「継承」"]} className="h-full w-full" />
                     </div>
                 </div>
             </section>
@@ -49,17 +49,17 @@ export const AboutPage = () => {
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
                     <div className="text-center max-w-4xl mx-auto mb-24">
                         <SectionHeader
-                            title={aboutData.valueTitle}
-                            subtitle={aboutData.valueSubtitle}
+                            title={aboutData?.valueTitle || "Value Protection"}
+                            subtitle={aboutData?.valueSubtitle || "価値を守るための、四つの柱。"}
                             className="text-center"
                         />
                         <p className="font-sans text-xl text-mangako-ink/70 font-light">
-                            {aboutData.valueDesc}
+                            {aboutData?.valueDesc || "Mangakoでは、すべての出品物に対して厳格な基準を設け、コレクターの資産価値を保護します。"}
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {aboutData.pillars.map((pillar: any, idx: number) => (
+                        {(aboutData?.pillars || []).map((pillar: any, idx: number) => (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, y: 30 }}
@@ -72,10 +72,10 @@ export const AboutPage = () => {
                                     0{idx + 1}
                                 </span>
                                 <h3 className="font-mincho text-2xl font-bold text-mangako-ink mb-6 tracking-widest">
-                                    {pillar.title}
+                                    {pillar?.title}
                                 </h3>
                                 <p className="font-sans text-mangako-ink/60 leading-relaxed font-light">
-                                    {pillar.desc}
+                                    {pillar?.desc}
                                 </p>
                             </motion.div>
                         ))}
@@ -89,10 +89,10 @@ export const AboutPage = () => {
                     <div className="flex flex-col items-center">
                         <span className="text-mangako-coral/40 text-8xl font-mincho mb-8 leading-none">“</span>
                         <blockquote className="font-mincho text-3xl lg:text-5xl text-center text-mangako-ink leading-tight tracking-[0.1em] mb-12 font-medium max-w-5xl transition-all duration-700 hover:text-mangako-coral">
-                            {aboutData.quote}
+                            {aboutData?.quote || "マンガは、私たちが共有した記憶の断片であり、未来に託されるべき遺産である。"}
                         </blockquote>
                         <cite className="font-sans text-sm tracking-[0.4em] font-black text-mangako-ink/40 uppercase not-italic">
-                            {aboutData.quoteAuthor}
+                            {aboutData?.quoteAuthor || "Mangako Editorial"}
                         </cite>
                     </div>
                 </div>

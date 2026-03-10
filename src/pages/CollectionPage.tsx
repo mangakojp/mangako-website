@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "@/contexts/TranslationContext";
 import { PageHero, SectionHeader } from "@/components/common/PageHeader";
 import { ArchiveCard } from "@/components/common/Cards";
@@ -9,17 +10,17 @@ export const CollectionPage = () => {
     const collectionData = t("collection");
     const [selectedCategory, setSelectedCategory] = useState("all");
 
-    const categories = collectionData.categories;
-    const items = collectionData.items.filter((item: any) =>
+    const categories = collectionData?.categories || [];
+    const items = (collectionData?.items || []).filter((item: any) =>
         selectedCategory === "all" || item.category === selectedCategory
     );
 
     return (
         <div className="bg-mangako-ivory min-h-screen">
             <PageHero
-                title={collectionData.heroTitle}
-                subtitle={collectionData.heroSubtitle}
-                description={collectionData.heroDesc}
+                title={collectionData?.heroTitle || "The Archive"}
+                subtitle={collectionData?.heroSubtitle || "文化的継承の目録。"}
+                description={collectionData?.heroDesc || "Mangakoのキュレーションチームによって厳選された、歴史的な価値を持つマンガのアーカイブ。"}
             />
 
             {/* Filter Bar */}
@@ -29,8 +30,8 @@ export const CollectionPage = () => {
                         <button
                             onClick={() => setSelectedCategory("all")}
                             className={`font-sans text-[10px] tracking-[0.3em] font-black uppercase px-6 py-2 transition-all duration-300 ${selectedCategory === "all"
-                                    ? "bg-mangako-ink text-mangako-ivory shadow-lg shadow-mangako-ink/10"
-                                    : "bg-white border border-mangako-ink/10 text-mangako-ink/50 hover:border-mangako-coral/30"
+                                ? "bg-mangako-ink text-mangako-ivory shadow-lg shadow-mangako-ink/10"
+                                : "bg-white border border-mangako-ink/10 text-mangako-ink/50 hover:border-mangako-coral/30"
                                 }`}
                         >
                             All
@@ -40,8 +41,8 @@ export const CollectionPage = () => {
                                 key={cat.id}
                                 onClick={() => setSelectedCategory(cat.id)}
                                 className={`font-sans text-[10px] tracking-[0.3em] font-black uppercase px-6 py-2 transition-all duration-300 whitespace-nowrap ${selectedCategory === cat.id
-                                        ? "bg-mangako-ink text-mangako-ivory shadow-lg shadow-mangako-ink/10"
-                                        : "bg-white border border-mangako-ink/10 text-mangako-ink/50 hover:border-mangako-coral/30"
+                                    ? "bg-mangako-ink text-mangako-ivory shadow-lg shadow-mangako-ink/10"
+                                    : "bg-white border border-mangako-ink/10 text-mangako-ink/50 hover:border-mangako-coral/30"
                                     }`}
                             >
                                 {cat.name}
@@ -51,7 +52,7 @@ export const CollectionPage = () => {
 
                     <div className="flex gap-4">
                         <span className="font-sans text-[10px] tracking-[0.2em] font-black text-mangako-ink/40 uppercase">
-                            {items.length} {collectionData.resultsCount}
+                            {items.length} {collectionData?.resultsCount || "Entries"}
                         </span>
                     </div>
                 </div>
@@ -71,9 +72,17 @@ export const CollectionPage = () => {
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 0.5, delay: idx * 0.05 }}
                                 >
-                                    <ArchiveCard
-                                        {...item}
-                                    />
+                                    <Link to={`/collection/${item.id}`} className="block h-full">
+                                        <ArchiveCard
+                                            title={item.title}
+                                            series={item.series}
+                                            type={item.type}
+                                            condition={item.condition}
+                                            provenance={item.provenance}
+                                            rarity={item.rarity}
+                                            image={item.image}
+                                        />
+                                    </Link>
                                 </motion.div>
                             ))}
                         </AnimatePresence>

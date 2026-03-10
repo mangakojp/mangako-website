@@ -1,15 +1,15 @@
-import React from "react";
-import { useTranslation, Language } from "@/contexts/TranslationContext";
+import { Link } from "react-router-dom";
+import { useTranslation } from "@/contexts/TranslationContext";
 import { motion } from "framer-motion";
 import { ComicText } from "@/components/ui/comic-text";
 
 export const ThreePillars = () => {
     const { t } = useTranslation();
-    const pillarData = t("pillars.items");
+    const pillarData = t("pillars.items") || [];
     const pillars = [
-        { ...pillarData[0], delay: 0.1 },
-        { ...pillarData[1], delay: 0.3 },
-        { ...pillarData[2], delay: 0.5 },
+        { ...(pillarData[0] || {}), delay: 0.1, path: "/collection" },
+        { ...(pillarData[1] || {}), delay: 0.3, path: "/archive" },
+        { ...(pillarData[2] || {}), delay: 0.5, path: "/marketplace" },
     ];
 
     return (
@@ -27,27 +27,29 @@ export const ThreePillars = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true, margin: "-5%" }}
                             transition={{ duration: 1.2, delay: pillar.delay, ease: "easeOut" }}
-                            className="relative aspect-[3/4] border-2 border-mangako-ink/10 bg-mangako-ivory flex flex-col items-center justify-center p-12 text-center group hover:border-mangako-ink/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+                            className="relative"
                         >
-                            {/* Corner Accents (Manga Panel style framing) */}
-                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
-                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
-                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
-                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
+                            <Link to={pillar.path} className="block relative aspect-[3/4] border-2 border-mangako-ink/10 bg-mangako-ivory flex flex-col items-center justify-center p-12 text-center group hover:border-mangako-ink/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                                {/* Corner Accents (Manga Panel style framing) */}
+                                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
+                                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
+                                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
+                                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-mangako-ink/30 m-4 transition-all duration-500 group-hover:m-6 group-hover:border-mangako-ink"></div>
 
-                            <div className="absolute -top-4">
-                                <ComicText>{pillar.label}</ComicText>
-                            </div>
+                                <div className="absolute -top-4">
+                                    <ComicText>{pillar.label}</ComicText>
+                                </div>
 
-                            <span className="font-sans text-mangako-ink/20 font-black text-xs tracking-widest mb-6 block uppercase uppercase">
-                                {t("pillars.phasePrefix")} {idx + 1}
-                            </span>
-                            <h3 className="font-mincho text-4xl mb-8 font-black text-mangako-ink">
-                                {pillar.title}
-                            </h3>
-                            <p className="font-sans text-base leading-loose tracking-wide text-mangako-ink/70 font-light">
-                                {pillar.desc}
-                            </p>
+                                <span className="font-sans text-mangako-ink/20 font-black text-xs tracking-widest mb-6 block uppercase">
+                                    {t("pillars.phasePrefix")} {idx + 1}
+                                </span>
+                                <h3 className="font-mincho text-4xl mb-8 font-black text-mangako-ink">
+                                    {pillar.title}
+                                </h3>
+                                <p className="font-sans text-base leading-loose tracking-wide text-mangako-ink/70 font-light">
+                                    {pillar.desc}
+                                </p>
+                            </Link>
                         </motion.div>
                     ))}
                 </div>

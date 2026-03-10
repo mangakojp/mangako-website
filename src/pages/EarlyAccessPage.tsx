@@ -10,9 +10,9 @@ export const EarlyAccessPage = () => {
     return (
         <div className="bg-mangako-ivory min-h-screen">
             <PageHero
-                title={earlyData.heroTitle}
-                subtitle={earlyData.heroSubtitle}
-                description={earlyData.heroDesc}
+                title={earlyData?.heroTitle || "Early Access Registry"}
+                subtitle={earlyData?.heroSubtitle || "特権的な体験。"}
+                description={earlyData?.heroDesc || "Mangakoの正式公開に先駆け、選ばれたコレクターのみが参加できる限定アクセス権を提供します。"}
             />
 
             {/* Exclusive Perks Section */}
@@ -20,11 +20,11 @@ export const EarlyAccessPage = () => {
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div className="flex flex-col gap-12">
                         <SectionHeader
-                            title={earlyData.perksTitle}
-                            subtitle={earlyData.perksSubtitle}
+                            title={earlyData?.perksTitle || "Member Benefits"}
+                            subtitle={earlyData?.perksSubtitle || "先行特典。"}
                         />
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {earlyData.perks.map((perk: any, idx: number) => (
+                            {(earlyData?.perks || []).map((perk: any, idx: number) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ opacity: 0, y: 20 }}
@@ -33,9 +33,9 @@ export const EarlyAccessPage = () => {
                                     transition={{ duration: 0.8, delay: idx * 0.1 }}
                                     className="bg-white p-8 border-l border-mangako-ink/10 group hover:border-mangako-coral hover:shadow-xl transition-all duration-500"
                                 >
-                                    <h4 className="font-mincho text-lg font-bold text-mangako-ink mb-2 tracking-widest">{perk.title}</h4>
+                                    <h4 className="font-mincho text-lg font-bold text-mangako-ink mb-2 tracking-widest">{perk?.title}</h4>
                                     <p className="font-sans text-xs text-mangako-ink/40 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                                        {perk.desc}
+                                        {perk?.desc}
                                     </p>
                                 </motion.div>
                             ))}
@@ -49,15 +49,15 @@ export const EarlyAccessPage = () => {
                                 <div className="w-3 h-3 bg-mangako-coral rounded-full"></div>
                             </div>
                             <h3 className="font-mincho text-4xl text-mangako-ivory tracking-[0.2em] mb-12">
-                                {earlyData.formTitle}
+                                {earlyData?.formTitle || "Registry Invitation"}
                             </h3>
                             <p className="font-sans text-sm text-mangako-ivory/30 tracking-widest mb-16 uppercase leading-loose">
-                                {earlyData.formDesc}
+                                {earlyData?.formDesc || "詳細を入力して、ウェイティングリストに登録してください。"}
                             </p>
                             <form className="w-full flex flex-col gap-8">
                                 <input type="email" className="bg-transparent border-b border-mangako-ivory/20 p-6 text-xl font-mincho text-mangako-ivory tracking-widest outline-none focus:border-mangako-coral placeholder:text-mangako-ivory/10 text-center" placeholder="Collector Email" />
                                 <button className="bg-mangako-coral text-white py-6 text-xs font-black tracking-[0.5em] font-sans uppercase hover:bg-white hover:text-mangako-ink transition-all rounded-full shadow-2xl shadow-mangako-coral/10 mt-8">
-                                    {earlyData.joinButton}
+                                    {earlyData?.joinButton || "Join Waiting List"}
                                 </button>
                             </form>
                             <div className="mt-20 pt-20 border-t border-mangako-ivory/10 w-full flex justify-center gap-12">

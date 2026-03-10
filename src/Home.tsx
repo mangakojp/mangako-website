@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { HeroSection } from './components/sections/HeroSection';
 import { BrandPhilosophy } from './components/sections/BrandPhilosophy';
+import { OrynthPartnership } from './components/sections/OrynthPartnership';
 import { FeaturedGallery } from './components/sections/FeaturedGallery';
 import { ThreePillars } from './components/sections/ThreePillars';
 import { Provenance } from './components/sections/Provenance';
@@ -21,6 +22,7 @@ export const Home = () => {
         <main>
             <HeroSection />
             <BrandPhilosophy />
+            <OrynthPartnership />
             <FeaturedGallery />
             <ThreePillars />
             <Provenance />

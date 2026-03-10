@@ -1,5 +1,5 @@
-import React from "react";
-import { useTranslation, Language } from "@/contexts/TranslationContext";
+import { Link } from "react-router-dom";
+import { useTranslation } from "@/contexts/TranslationContext";
 import { motion } from "framer-motion";
 
 export const ImmersiveExperience = () => {
@@ -49,9 +49,12 @@ export const ImmersiveExperience = () => {
                         <h2 className="font-mincho font-black text-5xl lg:text-[4rem] text-mangako-ink leading-[1.2] tracking-wider mb-8 whitespace-pre-line">
                             {t("immersive.title")}
                         </h2>
-                        <p className="font-sans text-lg text-mangako-ink/70 leading-relaxed font-light mt-4 tracking-wide max-w-lg mb-10">
+                        <p className="font-sans text-lg text-mangako-ink/70 leading-relaxed font-light mt-4 tracking-wide max-w-lg mb-12">
                             {t("immersive.desc")}
                         </p>
+                        <Link to="/community" className="inline-block mb-12 text-mangako-ink font-sans tracking-[0.4em] text-[10px] font-black uppercase border-b border-mangako-ink/50 pb-2 hover:border-mangako-ink transition-colors self-start">
+                            Join Collector Community
+                        </Link>
                         <div className="flex items-center gap-4 border-t border-mangako-ink/10 pt-6">
                             <span className="w-8 h-px bg-mangako-ink"></span>
                             <span className="font-sans uppercase tracking-[0.2em] text-xs font-semibold">{t("immersive.label")}</span>

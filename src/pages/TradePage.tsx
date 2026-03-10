@@ -11,9 +11,9 @@ export const TradePage = () => {
     return (
         <div className="bg-mangako-ivory min-h-screen">
             <PageHero
-                title={tradeData.heroTitle}
-                subtitle={tradeData.heroSubtitle}
-                description={tradeData.heroDesc}
+                title={tradeData?.heroTitle || "Exchange Engine"}
+                subtitle={tradeData?.heroSubtitle || "等価交換の美学。"}
+                description={tradeData?.heroDesc || "希少なアーカイブ同士の交換、または一部現金を含むトレードを仲介します。"}
             />
 
             {/* Comparison Narrative */}
@@ -21,11 +21,11 @@ export const TradePage = () => {
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
                     <div className="flex flex-col gap-12">
                         <SectionHeader
-                            title={tradeData.howItWorksTitle}
-                            subtitle={tradeData.howItWorksSubtitle}
+                            title={tradeData?.howItWorksTitle || "Trading Mechanism"}
+                            subtitle={tradeData?.howItWorksSubtitle || "取引の仕組み。"}
                         />
                         <div className="flex flex-col gap-10">
-                            {tradeData.steps.map((step: any, idx: number) => (
+                            {(tradeData?.steps || []).map((step: any, idx: number) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ opacity: 0, y: 20 }}
@@ -38,8 +38,8 @@ export const TradePage = () => {
                                         {idx + 1}
                                     </div>
                                     <div className="flex flex-col pt-1">
-                                        <h4 className="font-mincho text-xl font-bold text-mangako-ink mb-2 tracking-widest">{step.title}</h4>
-                                        <p className="font-sans text-mangako-ink/50 font-light leading-relaxed">{step.desc}</p>
+                                        <h4 className="font-mincho text-xl font-bold text-mangako-ink mb-2 tracking-widest">{step?.title}</h4>
+                                        <p className="font-sans text-mangako-ink/50 font-light leading-relaxed">{step?.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -87,12 +87,12 @@ export const TradePage = () => {
             <section className="py-24 bg-mangako-cream/10">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
                     <SectionHeader
-                        title={tradeData.scenariosTitle}
-                        subtitle={tradeData.scenariosSubtitle}
+                        title={tradeData?.scenariosTitle || "Trading Scenarios"}
+                        subtitle={tradeData?.scenariosSubtitle || "交換の事例。"}
                     />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
-                        {tradeData.scenarios.map((scenario: any, idx: number) => (
+                        {(tradeData?.scenarios || []).map((scenario: any, idx: number) => (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, y: 30 }}
@@ -102,8 +102,8 @@ export const TradePage = () => {
                                 className="bg-white p-12 border border-mangako-ink/10 hover:shadow-2xl transition-all duration-700 relative overflow-hidden group"
                             >
                                 <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-mangako-ink/[0.02] to-transparent z-0"></div>
-                                <h3 className="font-mincho text-2xl font-bold text-mangako-ink mb-8 tracking-widest relative z-10">{scenario.title}</h3>
-                                <p className="font-sans text-mangako-ink/50 font-light leading-relaxed mb-12 relative z-10">{scenario.desc}</p>
+                                <h3 className="font-mincho text-2xl font-bold text-mangako-ink mb-8 tracking-widest relative z-10">{scenario?.title}</h3>
+                                <p className="font-sans text-mangako-ink/50 font-light leading-relaxed mb-12 relative z-10">{scenario?.desc}</p>
                                 <div className="flex items-center gap-6 relative z-10 border-t border-mangako-ink/5 pt-10">
                                     <button className="font-sans text-[10px] tracking-[0.3em] font-black text-mangako-coral border-b border-mangako-coral/20 pb-1 hover:border-mangako-coral transition-all uppercase">
                                         Inquire Trade

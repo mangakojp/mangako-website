@@ -43,7 +43,7 @@ export const BrandPhilosophy = () => {
                     className="mt-24 w-full max-w-4xl h-[400px] border-[8px] border-white/90 bg-white p-2 shadow-2xl overflow-hidden group"
                 >
                     <img
-                        src="/mangako/poster-01.png"
+                        src="/images/philosophy_bg.jpg"
                         alt="Manga Panel Fragment"
                         className="w-full h-full object-cover object-top filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
                     />

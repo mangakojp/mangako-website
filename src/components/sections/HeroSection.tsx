@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { WavyBackground } from "@/components/ui/wavy-background";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/contexts/TranslationContext";
@@ -37,7 +37,7 @@ export const HeroSection = () => {
                         transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
                         className="flex flex-row gap-3 items-center mb-6"
                     >
-                        {t("hero.tags").map((tag: string, i: number) => (
+                        {(t("hero.tags") || []).map((tag: string, i: number) => (
                             <span key={i} className="text-xs font-sans tracking-widest text-mangako-ink/70 px-3 py-1 border border-mangako-ink/10 rounded-full bg-white/50 backdrop-blur-md whitespace-nowrap">
                                 {tag}
                             </span>
@@ -75,12 +75,12 @@ export const HeroSection = () => {
                         transition={{ duration: 1.2, delay: 0.9, ease: "easeOut" }}
                         className="flex flex-col sm:flex-row gap-4"
                     >
-                        <button className="bg-mangako-ink text-black px-8 py-4 rounded-none font-sans tracking-widest text-sm hover:bg-mangako-ink/90 transition-all text-white border-2 border-transparent">
+                        <Link to="/collection" className="bg-mangako-ink text-black px-8 py-4 rounded-none font-sans tracking-widest text-sm hover:bg-mangako-ink/90 transition-all text-white border-2 border-transparent text-center">
                             {t("hero.ctaPrimary")}
-                        </button>
-                        <button className="bg-transparent text-mangako-ink px-8 py-4 rounded-none font-sans tracking-widest text-sm hover:bg-black/5 transition-all border-2 border-mangako-ink/20">
+                        </Link>
+                        <Link to="/early-access" className="bg-transparent text-mangako-ink px-8 py-4 rounded-none font-sans tracking-widest text-sm hover:bg-black/5 transition-all border-2 border-mangako-ink/20 text-center">
                             {t("hero.ctaSecondary")}
-                        </button>
+                        </Link>
                     </motion.div>
                 </div>
 

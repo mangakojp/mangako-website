@@ -10,16 +10,16 @@ export const SellPage = () => {
     return (
         <div className="bg-mangako-ivory min-h-screen">
             <PageHero
-                title={sellData.heroTitle}
-                subtitle={sellData.heroSubtitle}
-                description={sellData.heroDesc}
+                title={sellData?.heroTitle || "Asset Consignment"}
+                subtitle={sellData?.heroSubtitle || "価値の最大化。"}
+                description={sellData?.heroDesc || "希少なマンガ・コレクションの売却を、Mangakoのエキスパートがサポートします。"}
             />
 
             {/* Why Sell with Mangako */}
             <section className="py-32">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 border-b border-mangako-ink/10 pb-32">
-                        {sellData.reasons.map((reason: any, idx: number) => (
+                        {(sellData?.reasons || []).map((reason: any, idx: number) => (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, y: 30 }}
@@ -31,8 +31,8 @@ export const SellPage = () => {
                                 <span className="font-sans text-[10px] tracking-[0.3em] font-black text-mangako-coral uppercase border border-mangako-coral px-3 py-1 mb-10">
                                     Benefit {idx + 1}
                                 </span>
-                                <h3 className="font-mincho text-2xl font-bold text-mangako-ink mb-6 tracking-widest">{reason.title}</h3>
-                                <p className="font-sans text-mangako-ink/60 leading-relaxed font-light">{reason.desc}</p>
+                                <h3 className="font-mincho text-2xl font-bold text-mangako-ink mb-6 tracking-widest">{reason?.title}</h3>
+                                <p className="font-sans text-mangako-ink/60 leading-relaxed font-light">{reason?.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -55,11 +55,11 @@ export const SellPage = () => {
 
                     <div className="flex flex-col">
                         <SectionHeader
-                            title={sellData.processTitle}
-                            subtitle={sellData.processSubtitle}
+                            title={sellData?.processTitle || "The Process"}
+                            subtitle={sellData?.processSubtitle || "委託販売の流れ。"}
                         />
                         <div className="flex flex-col gap-12">
-                            {sellData.steps.map((step: any, idx: number) => (
+                            {(sellData?.steps || []).map((step: any, idx: number) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ opacity: 0, x: 20 }}
@@ -72,8 +72,8 @@ export const SellPage = () => {
                                         0{idx + 1}
                                     </span>
                                     <div className="flex flex-col">
-                                        <h4 className="font-mincho text-xl font-bold text-mangako-ink mb-2 tracking-widest">{step.title}</h4>
-                                        <p className="font-sans text-mangako-ink/50 font-light leading-relaxed">{step.desc}</p>
+                                        <h4 className="font-mincho text-xl font-bold text-mangako-ink mb-2 tracking-widest">{step?.title}</h4>
+                                        <p className="font-sans text-mangako-ink/50 font-light leading-relaxed">{step?.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -89,8 +89,8 @@ export const SellPage = () => {
                         <div className="absolute top-0 left-0 w-2 h-full bg-mangako-coral"></div>
 
                         <div className="mb-16">
-                            <h2 className="font-mincho font-black text-4xl text-mangako-ink tracking-widest mb-6">{sellData.formTitle}</h2>
-                            <p className="font-sans text-mangako-ink/50 font-light">{sellData.formDesc}</p>
+                            <h2 className="font-mincho font-black text-4xl text-mangako-ink tracking-widest mb-6">{sellData?.formTitle || "Application"}</h2>
+                            <p className="font-sans text-mangako-ink/50 font-light">{sellData?.formDesc || "詳細を入力して申請してください。"}</p>
                         </div>
 
                         <form className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -112,7 +112,7 @@ export const SellPage = () => {
                             </div>
                             <div className="md:col-span-2 mt-8">
                                 <button className="bg-mangako-ink text-mangako-ivory px-16 py-6 text-xs font-black tracking-[0.4em] font-sans uppercase hover:bg-mangako-ink/80 transition-all rounded-full shadow-2xl shadow-mangako-ink/20">
-                                    {sellData.submitButton}
+                                    {sellData?.submitButton || "Submit"}
                                 </button>
                             </div>
                         </form>

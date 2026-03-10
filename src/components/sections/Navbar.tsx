@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useTranslation, Language } from "@/contexts/TranslationContext";
 
 export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const { t, language, setLanguage } = useTranslation();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -12,28 +14,53 @@ export const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const navLinks = [
+        { name: t("nav.world"), path: "/about" },
+        { name: t("nav.collection"), path: "/collection" },
+        { name: t("nav.marketplace"), path: "/marketplace" },
+        { name: t("nav.archive"), path: "/archive" },
+        { name: t("nav.artists"), path: "/artists" },
+        { name: t("nav.journal"), path: "/journal" },
+        { name: t("nav.community"), path: "/community" },
+    ];
+
     return (
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out px-6 lg:px-12 py-4 flex items-center justify-between",
-                scrolled ? "bg-mangako-ivory/80 backdrop-blur-md shadow-sm" : "bg-transparent py-6"
+                scrolled || location.pathname !== "/" ? "bg-mangako-ivory/80 backdrop-blur-md shadow-sm" : "bg-transparent py-6"
             )}
         >
             <div className="flex items-center gap-2">
-                <h1 className="font-sans font-black text-2xl tracking-[0.2em] uppercase text-mangako-ink">
-                    Mangako
-                </h1>
+                <Link to="/" className="flex items-center gap-4 group">
+                    <img
+                        src="/images/mangako_logo_web.png"
+                        alt="Mangako Premium Marketplace"
+                        className="h-10 object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-opacity"
+                    />
+                </Link>
                 <span className="hidden md:inline-block ml-4 text-[10px] tracking-widest px-2 py-0.5 border border-mangako-ink/30 text-mangako-ink/70 font-sans">
                     {t("nav.subtitle")}
                 </span>
             </div>
 
             <nav className="hidden lg:flex items-center gap-10 font-sans text-sm tracking-widest text-mangako-ink">
-                <a href="#world" className="hover:text-mangako-coral transition-colors">{t("nav.world")}</a>
-                <a href="#collection" className="hover:text-mangako-coral transition-colors">{t("nav.collection")}</a>
-                <a href="#features" className="hover:text-mangako-coral transition-colors">{t("nav.features")}</a>
-                <a href="#trade" className="hover:text-mangako-coral transition-colors">{t("nav.trade")}</a>
-                <a href="#invite" className="hover:text-mangako-coral transition-colors">{t("nav.invite")}</a>
+                {navLinks.map((link) => (
+                    <Link
+                        key={link.path}
+                        to={link.path}
+                        className={cn(
+                            "hover:text-mangako-coral transition-colors relative group",
+                            location.pathname.startsWith(link.path) && "text-mangako-coral"
+                        )}
+                    >
+                        {link.name}
+                        <span className={cn(
+                            "absolute -bottom-1 left-0 w-0 h-px bg-mangako-coral transition-all duration-300 group-hover:w-full",
+                            location.pathname.startsWith(link.path) && "w-full"
+                        )}></span>
+                    </Link>
+                ))}
             </nav>
 
             <div className="flex items-center gap-6">
@@ -69,10 +96,11 @@ export const Navbar = () => {
                     </button>
                 </div>
 
-                <button className="bg-mangako-ink text-mangako-ivory px-6 py-2.5 text-sm rounded-full font-sans tracking-widest hover:bg-mangako-ink/80 transition-all border border-transparent hover:border-mangako-ink/20 shadow-md whitespace-nowrap">
+                <Link to="/early-access" className="bg-mangako-ink text-mangako-ivory px-6 py-2.5 text-sm rounded-full font-sans tracking-widest hover:bg-mangako-ink/80 transition-all border border-transparent hover:border-mangako-ink/20 shadow-md whitespace-nowrap">
                     {t("nav.cta")}
-                </button>
+                </Link>
             </div>
         </header>
     );
 };
+

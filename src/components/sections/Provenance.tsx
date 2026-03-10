@@ -1,11 +1,11 @@
-import React from "react";
-import { useTranslation, Language } from "@/contexts/TranslationContext";
+import { Link } from "react-router-dom";
+import { useTranslation } from "@/contexts/TranslationContext";
 import RetroGrid from "@/components/ui/retro-grid";
 import { motion } from "framer-motion";
 
 export const Provenance = () => {
     const { t } = useTranslation();
-    const blocks = t("provenance.blocks");
+    const blocks = t("provenance.blocks") || [];
 
     return (
         <section className="relative py-32 bg-mangako-cream flex items-center justify-center min-h-[80vh] overflow-hidden" id="trade">
@@ -30,6 +30,9 @@ export const Provenance = () => {
                     <p className="font-sans text-mangako-ink/70 text-lg leading-relaxed max-w-xl font-light">
                         {t("provenance.desc")}
                     </p>
+                    <Link to="/provenance" className="inline-block mt-4 text-mangako-coral font-sans tracking-[0.4em] text-[10px] font-black uppercase border-b border-mangako-coral/50 pb-2 hover:border-mangako-coral transition-colors self-start">
+                        Explore Authentication Protocol
+                    </Link>
                 </motion.div>
 
                 {/* Right Feature Blocks */}
