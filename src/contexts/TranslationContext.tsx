@@ -51,15 +51,6 @@ const translations = {
                 { title: "限定出品", subtitle: "新着" }
             ]
         },
-        orynthSection: {
-            eyebrow: "掲載予定",
-            title: "Mangako、Orynthに掲載予定。",
-            body: "Mangakoは、プレミアム・マンガ・マーケットプレイスとして、Orynthへの掲載を予定しています。作品を蒐集し、保有し、流通させる新しい文化圏へ向けて、次の段階へ進みます。",
-            chips: ["掲載予定", "新しい流動性", "コレクター市場", "次の段階へ"],
-            primaryCta: "「Orynthを見る」",
-            secondaryCta: "「先行案内に参加」",
-            microLabel: "市場接続 / 次段階"
-        },
         pillars: {
             title: "Mangakoを構成する、3つの体験",
             items: [
@@ -436,15 +427,6 @@ const translations = {
                 { title: "Archive", subtitle: "Candidate" },
                 { title: "Limited Run", subtitle: "New Arrival" }
             ]
-        },
-        orynthSection: {
-            eyebrow: "Upcoming Listing",
-            title: "Mangako will be listed on Orynth.",
-            body: "Mangako is preparing to be listed on Orynth as a premium manga marketplace. It marks the next step in building a new culture around collecting, owning, and exchanging manga as enduring works.",
-            chips: ["Upcoming Listing", "New Liquidity", "Collector Market", "Next Phase"],
-            primaryCta: "Explore Orynth",
-            secondaryCta: "Join Early Access",
-            microLabel: "Market Link / Next Phase"
         },
         pillars: {
             title: "The Three Pillars of Mangako",
