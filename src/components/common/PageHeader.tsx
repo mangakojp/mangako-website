@@ -10,7 +10,7 @@ interface PageHeroProps {
     image?: string;
 }
 
-export const PageHero = ({ title, subtitle, description, className, image }: PageHeroProps) => {
+export const PageHero = ({ title, subtitle, description, className }: PageHeroProps) => {
     return (
         <section className={cn("relative pt-48 pb-32 overflow-hidden bg-mangako-ivory border-h border-mangako-ink/5", className)}>
             {/* Background Texture/Gradient */}
