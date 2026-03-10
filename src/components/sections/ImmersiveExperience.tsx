@@ -2,8 +2,8 @@ import React from "react";
 import { useTranslation, Language } from "@/contexts/TranslationContext";
 import { motion } from "framer-motion";
 
-export const ImmersiveExperience = ($2) => {
-  const { t } = useTranslation();
+export const ImmersiveExperience = () => {
+    const { t } = useTranslation();
     return (
         <section className="relative py-32 bg-mangako-ivory overflow-hidden" id="experience">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -46,15 +46,15 @@ export const ImmersiveExperience = ($2) => {
                         viewport={{ once: true, margin: "-10%" }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
                     >
-                        <h2 className="font-mincho font-black text-5xl lg:text-[4rem] text-mangako-ink leading-[1.2] tracking-wider mb-8">
-                            読むためだけではない。<br />感じるための<br />体験へ。
+                        <h2 className="font-mincho font-black text-5xl lg:text-[4rem] text-mangako-ink leading-[1.2] tracking-wider mb-8 whitespace-pre-line">
+                            {t("immersive.title")}
                         </h2>
                         <p className="font-sans text-lg text-mangako-ink/70 leading-relaxed font-light mt-4 tracking-wide max-w-lg mb-10">
-                            線、余白、紙、構図。そのすべてを“作品”として捉えるために、Mangakoはギャラリーのような閲覧体験を設計します。
+                            {t("immersive.desc")}
                         </p>
                         <div className="flex items-center gap-4 border-t border-mangako-ink/10 pt-6">
                             <span className="w-8 h-px bg-mangako-ink"></span>
-                            <span className="font-sans uppercase tracking-[0.2em] text-xs font-semibold">Cinematic Viewing</span>
+                            <span className="font-sans uppercase tracking-[0.2em] text-xs font-semibold">{t("immersive.label")}</span>
                         </div>
                     </motion.div>
                 </div>

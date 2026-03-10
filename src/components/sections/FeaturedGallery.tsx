@@ -3,15 +3,15 @@ import { useTranslation, Language } from "@/contexts/TranslationContext";
 import { motion } from "framer-motion";
 import { ComicText } from "@/components/ui/comic-text";
 
-const artworks = [
-    { img: "/mangako/poster-01.png", title: "初版候補", subtitle: "注目の出品" },
-    { img: "/mangako/poster-02.png", title: "限定アート", subtitle: "稀少" },
-    { img: "/mangako/poster-03.png", title: "アーカイブ", subtitle: "収蔵候補" },
-    { img: "/mangako/poster-04.png", title: "限定出品", subtitle: "新着" },
-];
+export const FeaturedGallery = () => {
+    const { t } = useTranslation();
+    const artworks = [
+        { img: "/mangako/poster-01.png", title: t("gallery.items.0.title"), subtitle: t("gallery.items.0.subtitle") },
+        { img: "/mangako/poster-02.png", title: t("gallery.items.1.title"), subtitle: t("gallery.items.1.subtitle") },
+        { img: "/mangako/poster-03.png", title: t("gallery.items.2.title"), subtitle: t("gallery.items.2.subtitle") },
+        { img: "/mangako/poster-04.png", title: t("gallery.items.3.title"), subtitle: t("gallery.items.3.subtitle") },
+    ];
 
-export const FeaturedGallery = ($2) => {
-  const { t } = useTranslation();
     return (
         <section className="relative py-32 bg-mangako-ivory overflow-hidden" id="collection">
             {/* Ambient background effect */}
@@ -21,15 +21,15 @@ export const FeaturedGallery = ($2) => {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                     <div className="flex-1">
                         <h2 className="font-mincho font-black text-4xl lg:text-5xl tracking-widest text-mangako-ink mb-6">
-                            所有する悦びを、<br />再定義する。
+                            {t("gallery.titleLine1")}<br />{t("gallery.titleLine2")}
                         </h2>
                         <p className="font-sans text-lg text-mangako-ink/70 leading-relaxed max-w-xl">
-                            紙の存在感、印刷の熱、線の強度まで。ギャラリーに並ぶのは、単なる「本」ではなく、来歴と真贋が証明された美術品としてのマンガです。
+                            {t("gallery.desc")}
                         </p>
                     </div>
                     <div className="flex-none">
                         <button className="text-mangako-ink font-sans tracking-widest text-sm uppercase px-6 py-3 border border-mangako-ink/30 hover:bg-mangako-ink hover:text-mangako-ivory transition-colors duration-300">
-                            「すべて見る」
+                            {t("gallery.button")}
                         </button>
                     </div>
                 </div>

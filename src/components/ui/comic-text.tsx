@@ -3,8 +3,12 @@ import { useTranslation, Language } from "@/contexts/TranslationContext";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const ComicText = ($2) => {
-  const { t } = useTranslation();
+interface ComicTextProps {
+    children: React.ReactNode;
+    className?: string;
+}
+
+export const ComicText = ({ children, className }: ComicTextProps) => {
     return (
         <motion.div
             initial={{ scale: 0.8, opacity: 0, rotate: -10 }}

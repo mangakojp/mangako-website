@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useTranslation, Language } from "@/contexts/TranslationContext";
 
-export const Navbar = ($2) => {
-  const { t } = useTranslation();
+export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const { t, language, setLanguage } = useTranslation();
 

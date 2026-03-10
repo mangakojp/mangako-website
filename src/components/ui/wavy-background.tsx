@@ -4,8 +4,31 @@ import { useTranslation, Language } from "@/contexts/TranslationContext";
 import { createNoise3D } from "simplex-noise";
 import { cn } from "@/lib/utils";
 
-export const WavyBackground = ($2) => {
-  const { t } = useTranslation();
+interface WavyBackgroundProps {
+    children?: React.ReactNode;
+    className?: string;
+    containerClassName?: string;
+    colors?: string[];
+    waveWidth?: number;
+    backgroundFill?: string;
+    blur?: number;
+    speed?: "slow" | "fast";
+    waveOpacity?: number;
+    [key: string]: any;
+}
+
+export const WavyBackground = ({
+    children,
+    className,
+    containerClassName,
+    colors,
+    waveWidth,
+    backgroundFill,
+    blur = 10,
+    speed = "slow",
+    waveOpacity,
+    ...props
+}: WavyBackgroundProps) => {
     const noise = createNoise3D();
     let w: number, h: number, nt: number, i: number, x: number, ctx: any, canvas: any;
     const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -58,47 +58,42 @@ const translations = {
             phasePrefix: "Phase"
         },
         provenance: {
-            engine: "Authentication Engine",
-            title: "価値は、情報によって守られる。",
+            label: "Authentication Engine",
+            titleLine1: "価値は、情報によって",
+            titleLine2: "守られる。",
             desc: "真正性、来歴、保存性、市場流動性。Mangakoは、コレクターが本当に必要とする情報と体験を、美しく一つに束ねます。",
-            items: [
-                { title: "真贋確認", info: "Verified Authentic" },
-                { title: "来歴記録", info: "Provenance Data" },
-                { title: "保存価値", info: "Archival Grade" },
-                { title: "流動性", info: "Market Liquidity" }
+            blocks: [
+                { title: "真贋確認", info: "Verified Authentic", icon: "01" },
+                { title: "来歴記録", info: "Provenance Data", icon: "02" },
+                { title: "保存価値", info: "Archival Grade", icon: "03" },
+                { title: "流動性", info: "Market Liquidity", icon: "04" }
             ]
         },
-        experience: {
-            title1: "読むためだけではない。",
-            title2: "感じるための",
-            title3: "体験へ。",
+        immersive: {
+            title: "読むためだけではない。\n感じるための\n体験へ。",
             desc: "線、余白、紙、構図。そのすべてを“作品”として捉えるために、Mangakoはギャラリーのような閲覧体験を設計します。",
-            tag: "Cinematic Viewing"
+            label: "Cinematic Viewing"
         },
         archive: {
             title: "Selected Archive",
             items: [
-                { title: "注目のアーカイブ", desc: "第一部 完結セット 初版" },
-                { title: "今週の厳選出品", desc: "作者直筆 サイン入り" },
-                { title: "収蔵候補", desc: "限定装丁版 全巻綴じ" }
+                { title: "注目のアーカイブ", desc: "第一部 完結セット 初版", date: "2024.10", ref: "ARCH-001" },
+                { title: "今週の厳選出品", desc: "作者直筆 サイン入り", date: "2024.11", ref: "ARCH-024" },
+                { title: "収蔵候補", desc: "限定装丁版 全巻綴じ", date: "2024.12", ref: "ARCH-089" }
             ],
-            viewDetails: "View Details",
-            date1: "2024.10",
-            date2: "2024.11",
-            date3: "2024.12"
+            viewDetails: "View Details"
         },
-        cta: {
+        ctaSection: {
             title: "「次の名作との出会いを、いち早く。」",
             desc: "限定ドロップ、先行出品、招待制コミュニティ、アーカイブ公開の案内を受け取る。",
             button: "先行登録する",
-            community: "招待制コレクター・コミュニティ"
+            footer: "招待制コレクター・コミュニティ"
         },
         footer: {
-            subtitle1: "物語の原典を、その手に。",
-            subtitle2: "プレミアム・マンガ・マーケットプレイス",
+            desc: "物語の原典を、その手に。",
+            subtitle: "プレミアム・マンガ・マーケットプレイス",
             terms: "利用規約",
-            copyright: "© 2026 Mangako. All rights reserved.",
-            tag: "Curated Collectibles Archive."
+            legal: "Curated Collectibles Archive."
         }
     },
     en: {
@@ -150,47 +145,42 @@ const translations = {
             phasePrefix: "Pillar"
         },
         provenance: {
-            engine: "Authentication Engine",
-            title: "Value is protected by information.",
+            label: "Authentication Engine",
+            titleLine1: "Value is protected",
+            titleLine2: "by information.",
             desc: "Authenticity, provenance, preservation, and market liquidity. Mangako elegantly unifies the information and experiences that true collectors require.",
-            items: [
-                { title: "Verification", info: "Verified Authentic" },
-                { title: "Provenance", info: "Provenance Data" },
-                { title: "Preservation", info: "Archival Grade" },
-                { title: "Liquidity", info: "Market Liquidity" }
+            blocks: [
+                { title: "Verification", info: "Verified Authentic", icon: "01" },
+                { title: "Provenance", info: "Provenance Data", icon: "02" },
+                { title: "Preservation", info: "Archival Grade", icon: "03" },
+                { title: "Liquidity", info: "Market Liquidity", icon: "04" }
             ]
         },
-        experience: {
-            title1: "An experience",
-            title2: "meant to be felt,",
-            title3: "not just read.",
+        immersive: {
+            title: "Built not just for reading,\nbut for feeling.",
             desc: "Lines, negative space, paper, composition. To capture it all as an artwork, Mangako designs an immersive, gallery-like viewing experience.",
-            tag: "Cinematic Viewing"
+            label: "Cinematic Viewing"
         },
         archive: {
             title: "Selected Archive",
             items: [
-                { title: "Featured Archive", desc: "Part 1 Complete Set, First Edition" },
-                { title: "Weekly Selection", desc: "Autographed by the Author" },
-                { title: "Archive Candidate", desc: "Limited Bound Edition, Full Set" }
+                { title: "Featured Archive", desc: "Part 1 Complete Set, First Edition", date: "Oct 2024", ref: "ARCH-001" },
+                { title: "Weekly Selection", desc: "Autographed by the Author", date: "Nov 2024", ref: "ARCH-024" },
+                { title: "Archive Candidate", desc: "Limited Bound Edition, Full Set", date: "Dec 2024", ref: "ARCH-089" }
             ],
-            viewDetails: "View Details",
-            date1: "Oct 2024",
-            date2: "Nov 2024",
-            date3: "Dec 2024"
+            viewDetails: "View Details"
         },
-        cta: {
+        ctaSection: {
             title: "Be first to discover the next masterpiece.",
             desc: "Get updates on limited drops, early listings, invite-only community access, and archive releases.",
             button: "Join Early Access",
-            community: "Invite-only Collector Community"
+            footer: "Invite-only Collector Community"
         },
         footer: {
-            subtitle1: "Hold the original source of the story.",
-            subtitle2: "Premium Manga Marketplace",
+            desc: "Hold the original source of the story.",
+            subtitle: "Premium Manga Marketplace",
             terms: "Terms of Service",
-            copyright: "© 2026 Mangako. All rights reserved.",
-            tag: "Curated Collectibles Archive."
+            legal: "Curated Collectibles Archive."
         }
     }
 };

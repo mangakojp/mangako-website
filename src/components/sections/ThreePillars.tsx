@@ -3,34 +3,20 @@ import { useTranslation, Language } from "@/contexts/TranslationContext";
 import { motion } from "framer-motion";
 import { ComicText } from "@/components/ui/comic-text";
 
-export const ThreePillars = ($2) => {
-  const { t } = useTranslation();
+export const ThreePillars = () => {
+    const { t } = useTranslation();
+    const pillarData = t("pillars.items");
     const pillars = [
-        {
-            title: "蒐集",
-            desc: "「初版、限定版、完結セット、証明付きアートを厳選して出会える。」",
-            label: "限定",
-            delay: 0.1
-        },
-        {
-            title: "閲覧",
-            desc: "「作品の空気感を損なわない、静かで没入感のある鑑賞体験。」",
-            label: "注目",
-            delay: 0.3
-        },
-        {
-            title: "売買",
-            desc: "「真贋確認と来歴情報を伴う、信頼性の高い流通体験。」",
-            label: "新着",
-            delay: 0.5
-        }
+        { ...pillarData[0], delay: 0.1 },
+        { ...pillarData[1], delay: 0.3 },
+        { ...pillarData[2], delay: 0.5 },
     ];
 
     return (
         <section className="relative py-32 bg-white" id="features">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
                 <h2 className="font-mincho text-4xl lg:text-5xl text-center text-mangako-ink mb-24 tracking-widest font-bold">
-                    Mangakoを構成する、3つの体験
+                    {t("pillars.title")}
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
@@ -54,7 +40,7 @@ export const ThreePillars = ($2) => {
                             </div>
 
                             <span className="font-sans text-mangako-ink/20 font-black text-xs tracking-widest mb-6 block uppercase uppercase">
-                                Phase {idx + 1}
+                                {t("pillars.phasePrefix")} {idx + 1}
                             </span>
                             <h3 className="font-mincho text-4xl mb-8 font-black text-mangako-ink">
                                 {pillar.title}

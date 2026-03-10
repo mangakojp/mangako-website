@@ -3,8 +3,12 @@ import { useTranslation, Language } from "@/contexts/TranslationContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const GooeyText = ($2) => {
-  const { t } = useTranslation();
+interface GooeyTextProps {
+    texts: string[];
+    className?: string;
+}
+
+export const GooeyText = ({ texts, className }: GooeyTextProps) => {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {

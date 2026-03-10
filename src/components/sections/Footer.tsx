@@ -2,8 +2,8 @@ import React from "react";
 import { useTranslation, Language } from "@/contexts/TranslationContext";
 import { cn } from "@/lib/utils";
 
-export const Footer = ($2) => {
-  const { t } = useTranslation();
+export const Footer = () => {
+    const { t } = useTranslation();
     return (
         <footer className="w-full bg-mangako-ink text-mangako-ivory py-24 relative overflow-hidden">
             {/* Background manga-print subtle texture */}
@@ -24,27 +24,27 @@ export const Footer = ($2) => {
                         Mangako
                     </h2>
                     <p className="font-mincho text-sm tracking-widest leading-loose opacity-70">
-                        物語の原典を、その手に。<br />
-                        プレミアム・マンガ・マーケットプレイス
+                        {t("footer.desc")}<br />
+                        {t("footer.subtitle")}
                     </p>
                 </div>
 
                 <div className="lg:col-span-2 flex flex-col gap-4 font-sans text-sm tracking-widest text-mangako-ivory/60">
-                    <a href="#world" className="hover:text-mangako-coral transition-colors">世界観</a>
-                    <a href="#collection" className="hover:text-mangako-coral transition-colors">コレクション</a>
-                    <a href="#features" className="hover:text-mangako-coral transition-colors">特徴</a>
+                    <a href="#world" className="hover:text-mangako-coral transition-colors">{t("nav.world")}</a>
+                    <a href="#collection" className="hover:text-mangako-coral transition-colors">{t("nav.collection")}</a>
+                    <a href="#features" className="hover:text-mangako-coral transition-colors">{t("nav.features")}</a>
                 </div>
 
                 <div className="lg:col-span-2 flex flex-col gap-4 font-sans text-sm tracking-widest text-mangako-ivory/60">
-                    <a href="#trade" className="hover:text-mangako-coral transition-colors">取引</a>
-                    <a href="#invite" className="hover:text-mangako-coral transition-colors">先行案内</a>
-                    <a href="#" className="hover:text-mangako-coral transition-colors mt-4">利用規約</a>
+                    <a href="#trade" className="hover:text-mangako-coral transition-colors">{t("nav.trade")}</a>
+                    <a href="#invite" className="hover:text-mangako-coral transition-colors">{t("nav.invite")}</a>
+                    <a href="#" className="hover:text-mangako-coral transition-colors mt-4">{t("footer.terms")}</a>
                 </div>
 
                 <div className="lg:col-span-4 flex flex-col justify-end lg:items-end font-sans text-xs tracking-widest text-mangako-ivory/40">
                     <p className="text-right">
                         © 2026 Mangako. All rights reserved.<br />
-                        Curated Collectibles Archive.
+                        {t("footer.legal")}
                     </p>
                 </div>
             </div>

@@ -3,14 +3,9 @@ import { useTranslation, Language } from "@/contexts/TranslationContext";
 import RetroGrid from "@/components/ui/retro-grid";
 import { motion } from "framer-motion";
 
-export const Provenance = ($2) => {
-  const { t } = useTranslation();
-    const blocks = [
-        { title: "真贋確認", info: "Verified Authentic", icon: "01" },
-        { title: "来歴記録", info: "Provenance Data", icon: "02" },
-        { title: "保存価値", info: "Archival Grade", icon: "03" },
-        { title: "流動性", info: "Market Liquidity", icon: "04" },
-    ];
+export const Provenance = () => {
+    const { t } = useTranslation();
+    const blocks = t("provenance.blocks");
 
     return (
         <section className="relative py-32 bg-mangako-cream flex items-center justify-center min-h-[80vh] overflow-hidden" id="trade">
@@ -27,19 +22,19 @@ export const Provenance = ($2) => {
                 >
                     <div className="flex items-center gap-4">
                         <span className="w-12 h-[2px] bg-mangako-ink"></span>
-                        <span className="font-sans uppercase tracking-widest text-sm font-semibold">Authentication Engine</span>
+                        <span className="font-sans uppercase tracking-widest text-sm font-semibold">{t("provenance.label")}</span>
                     </div>
                     <h2 className="font-mincho font-black text-5xl lg:text-6xl text-mangako-ink leading-tight tracking-widest">
-                        価値は、情報によって守られる。
+                        {t("provenance.titleLine1")}<br />{t("provenance.titleLine2")}
                     </h2>
                     <p className="font-sans text-mangako-ink/70 text-lg leading-relaxed max-w-xl font-light">
-                        真正性、来歴、保存性、市場流動性。Mangakoは、コレクターが本当に必要とする情報と体験を、美しく一つに束ねます。
+                        {t("provenance.desc")}
                     </p>
                 </motion.div>
 
                 {/* Right Feature Blocks */}
                 <div className="grid grid-cols-2 gap-4 lg:gap-8">
-                    {blocks.map((block, idx) => (
+                    {blocks.map((block: any, idx: number) => (
                         <motion.div
                             key={idx}
                             initial={{ opacity: 0, y: 30 }}
