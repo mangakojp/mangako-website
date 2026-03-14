@@ -68,6 +68,9 @@ export const Footer = () => {
                         <Link to="/journal" className="hover:text-mangako-coral transition-colors">Essays</Link>
                         <Link to="/faq" className="hover:text-mangako-coral transition-colors">Support</Link>
                         <Link to="/contact" className="hover:text-mangako-coral transition-colors">Contact</Link>
+                        <a href="https://x.com/Mangako_jp" target="_blank" rel="noopener noreferrer" className="hover:text-mangako-coral transition-colors flex items-center gap-2 mt-2">
+                            <span className="font-bold">X</span> <span className="text-[10px] opacity-50 tracking-normal">(Twitter)</span>
+                        </a>
                     </nav>
                 </div>
 
