@@ -35,6 +35,11 @@ export const Footer = () => {
                             Join Archive
                         </Link>
                     </div>
+                    <div className="mt-8">
+                        <a href="https://orynth.dev/projects/mangako" target="_blank" rel="noopener noreferrer">
+                            <img src="https://orynth.dev/api/badge/mangako?theme=light&style=default" alt="Featured on Orynth" width="260" height="80" className="hover:opacity-80 transition-opacity" />
+                        </a>
+                    </div>
                 </div>
 
                 <div className="lg:col-span-2 flex flex-col gap-4">
