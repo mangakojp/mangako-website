@@ -21,6 +21,7 @@ export const Navbar = () => {
         { name: t("nav.archive"), path: "/archive" },
         { name: t("nav.artists"), path: "/artists" },
         { name: t("nav.journal"), path: "/journal" },
+        { name: "Studio", path: "/studio" },
         { name: t("nav.community"), path: "/community" },
     ];
 
