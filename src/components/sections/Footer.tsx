@@ -66,7 +66,7 @@ export const Footer = () => {
                     <span className="font-sans text-[10px] tracking-[0.4em] font-black text-white/20 uppercase mb-4">Ecosystem</span>
                     <nav className="flex flex-col gap-4 font-sans text-xs tracking-widest text-mangako-ivory/60">
                         <Link to="/journal" className="hover:text-mangako-coral transition-colors">Journal</Link>
-                        <Link to="/studio" className="hover:text-mangako-coral transition-colors">Studio</Link>
+                        <a href="https://studio.mangako.online/" className="hover:text-mangako-coral transition-colors">Studio</a>
                         <Link to="/faq" className="hover:text-mangako-coral transition-colors">Support</Link>
                         <a href="https://x.com/Mangako_jp" target="_blank" rel="noopener noreferrer" className="hover:text-mangako-coral transition-colors flex items-center gap-2">
                             <span className="font-bold">X</span> <span className="text-[10px] opacity-50 tracking-normal">(Twitter)</span>

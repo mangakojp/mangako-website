@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/studio/(.*)", "destination": "https://studio.mangako.online/$1", "permanent": true },
+    { "source": "/studio", "destination": "https://studio.mangako.online/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
