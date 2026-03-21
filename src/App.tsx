@@ -42,11 +42,55 @@ import { Create as StudioCreate } from './studio/pages/Create';
 import { Published as StudioPublished } from './studio/pages/Published';
 
 function App() {
+    const hostname = typeof window !== 'undefined' ? window.location.hostname : '';
+    const isJournal = hostname.startsWith('journal.') || hostname === 'journal.localhost';
+    const isStudio = hostname.startsWith('studio.') || hostname === 'studio.localhost';
+
+    // 1. journal.mangako.jp Subdomain Application
+    if (isJournal) {
+        return (
+            <TranslationProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<JournalLayout />}>
+                            <Route index element={<JournalHome />} />
+                            <Route path="article/:slug" element={<JournalArticle />} />
+                            <Route path="category/:slug" element={<JournalCategory />} />
+                            <Route path="notes" element={<JournalNotes />} />
+                            <Route path="archive" element={<JournalArchive />} />
+                            <Route path="about" element={<JournalAbout />} />
+                            <Route path="subscribe" element={<JournalSubscribe />} />
+                            <Route path="authors/:slug" element={<JournalAuthor />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </TranslationProvider>
+        );
+    }
+
+    // 2. studio.mangako.jp Subdomain Application
+    if (isStudio) {
+        return (
+            <TranslationProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<StudioLayout />}>
+                            <Route index element={<StudioLanding />} />
+                            <Route path="dashboard" element={<StudioDashboard />} />
+                            <Route path="create" element={<StudioCreate />} />
+                            <Route path="published/:slug" element={<StudioPublished />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </TranslationProvider>
+        );
+    }
+
+    // 3. Main Website (Fallback / Root Domain)
     return (
         <TranslationProvider>
             <BrowserRouter>
                 <Routes>
-                    {/* Main Website Structure */}
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Home />} />
                         <Route path="about" element={<AboutPage />} />
@@ -66,26 +110,32 @@ function App() {
                         <Route path="faq" element={<FAQPage />} />
                         <Route path="contact" element={<ContactPage />} />
                         <Route path="early-access" element={<EarlyAccessPage />} />
-                    </Route>
-
-                    {/* journal.mangako.com Subdomain Experience */}
-                    <Route path="/journal" element={<JournalLayout />}>
-                        <Route index element={<JournalHome />} />
-                        <Route path="article/:slug" element={<JournalArticle />} />
-                        <Route path="category/:slug" element={<JournalCategory />} />
-                        <Route path="notes" element={<JournalNotes />} />
-                        <Route path="archive" element={<JournalArchive />} />
-                        <Route path="about" element={<JournalAbout />} />
-                        <Route path="subscribe" element={<JournalSubscribe />} />
-                        <Route path="authors/:slug" element={<JournalAuthor />} />
-                    </Route>
-
-                    {/* studio.mangako.com Subdomain Experience */}
-                    <Route path="/studio" element={<StudioLayout />}>
-                        <Route index element={<StudioLanding />} />
-                        <Route path="dashboard" element={<StudioDashboard />} />
-                        <Route path="create" element={<StudioCreate />} />
-                        <Route path="published/:slug" element={<StudioPublished />} />
+                        
+                        {/* Fallback routes to test subdomains locally via directories (e.g. localhost:5173/journal) */}
+                        <Route path="journal/*" element={
+                            <Routes>
+                                <Route path="/" element={<JournalLayout />}>
+                                    <Route index element={<JournalHome />} />
+                                    <Route path="article/:slug" element={<JournalArticle />} />
+                                    <Route path="category/:slug" element={<JournalCategory />} />
+                                    <Route path="notes" element={<JournalNotes />} />
+                                    <Route path="archive" element={<JournalArchive />} />
+                                    <Route path="about" element={<JournalAbout />} />
+                                    <Route path="subscribe" element={<JournalSubscribe />} />
+                                    <Route path="authors/:slug" element={<JournalAuthor />} />
+                                </Route>
+                            </Routes>
+                        } />
+                        <Route path="studio/*" element={
+                            <Routes>
+                                <Route path="/" element={<StudioLayout />}>
+                                    <Route index element={<StudioLanding />} />
+                                    <Route path="dashboard" element={<StudioDashboard />} />
+                                    <Route path="create" element={<StudioCreate />} />
+                                    <Route path="published/:slug" element={<StudioPublished />} />
+                                </Route>
+                            </Routes>
+                        } />
                     </Route>
                 </Routes>
             </BrowserRouter>
